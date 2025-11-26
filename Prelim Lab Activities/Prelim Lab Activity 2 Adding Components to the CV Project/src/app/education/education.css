@@ -1,0 +1,16 @@
+.education-section {
+  margin-top: 20px;
+}
+
+.education-list {
+  list-style: none;
+  padding: 0;
+}
+
+.education-list li {
+  background: #eef6ff;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}

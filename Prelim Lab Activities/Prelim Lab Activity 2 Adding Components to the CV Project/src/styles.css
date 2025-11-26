@@ -1,0 +1,127 @@
+/* ---------- GLOBAL ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fbfd;
+  color: #1c1c1c;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+  min-height: 100vh;
+}
+
+/* ---------- PAGE CONTAINER (A4 SIZE) ---------- */
+.cv-container {
+  width: 310mm;      /* A4 width */
+  max-width: 90%;    /* Responsive on smaller screens */
+  min-height: 297mm; /* A4 height */
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-left: 80px;
+}
+
+/* ---------- HEADER ---------- */
+.cv-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0077b6;
+}
+
+.contact-info {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.contact-info a {
+  color: #0077b6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.separator {
+  margin: 0 6px;
+  color: #9ca3af;
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background: #0077b6;
+  margin: 15px auto;
+  border-radius: 6px;
+}
+
+/* ---------- SECTIONS ---------- */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0077b6;
+  border-left: 4px solid #0077b6;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* Profile Text */
+.profile-text,
+.why-hire-text {
+  font-size: 0.98rem;
+  text-align: justify;
+}
+
+/* ---------- SKILLS LAYOUT ---------- */
+.skills-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.skills-list li {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- TECHNICAL PROFICIENCIES ---------- */
+.tech-category {
+  background: #eef6ff;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.category-title {
+  font-size: 1.05rem;
+  margin-bottom: 5px;
+  color: #005582;
+}
+
+.tech-items {
+  font-size: 0.95rem;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e3e9ee;
+  color: #525252;
+}
+
+
