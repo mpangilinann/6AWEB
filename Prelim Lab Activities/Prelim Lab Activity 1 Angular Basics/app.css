@@ -1,0 +1,185 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f7f9fb;
+  color: #333;
+  line-height: 1.7;
+}
+
+.cv-container {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 60px 70px;
+  background-color: #ffffff;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.cv-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.name {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.contact-info {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-item strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.contact-item a {
+  color: #00bfae;
+  text-decoration: none;
+  border-bottom: 1px dotted #666;
+  transition: border-color 0.3s ease;
+}
+
+.contact-item a:hover {
+  border-color: #00bfae;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background: #00bfae;
+  margin-top: 30px;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #111;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #00bfae;
+  text-transform: uppercase;
+}
+
+/* Profile Section */
+.profile-text {
+  font-size: 1rem;
+  color: #333;
+  text-align: justify;
+  line-height: 1.8;
+  padding: 25px;
+  border-left: 6px solid #00bfae;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.skills-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #00bfae;
+  font-weight: bold;
+}
+
+/* Technical Skills Section */
+.tech-category {
+  background-color: #fdfdfd;
+  padding: 20px 25px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 30px;
+}
+
+
+
+.category-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.tech-items {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-container {
+    padding: 40px 30px;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-container {
+    padding: 25px 20px;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .contact-info {
+    font-size: 0.85rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
