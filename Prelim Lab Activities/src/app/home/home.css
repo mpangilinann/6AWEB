@@ -1,0 +1,79 @@
+/* Main wrapper */
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card layout */
+.home-card {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  max-width: 900px;
+  background: linear-gradient(135deg, #fdfbff, #eef1ff);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* PHOTO */
+.photo-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid #5c6bc0;
+  box-shadow: 0 6px 20px rgba(92, 107, 192, 0.3);
+}
+
+/* INFO SECTION */
+.info-section {
+  flex: 2;
+}
+
+.home-name {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+.home-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
+
+.home-description {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+/* Button */
+.home-btn {
+  background: #5c6bc0;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.home-btn:hover {
+  background: #3f4a99;
+  transform: translateY(-2px);
+}

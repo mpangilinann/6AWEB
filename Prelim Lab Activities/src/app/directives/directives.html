@@ -1,0 +1,88 @@
+<div class="directives-container">
+
+  <!-- STATIC IF/ELSE -->
+  <div class="directive-box">
+    @if (isActiveStatic === true) {
+      <h2>This is a static note with true value.</h2>
+    } @else {
+      <h2>This static note has false value.</h2>
+    }
+  </div>
+
+  <!-- SHOW/HIDE NOTE -->
+  <div class="directive-box">
+    @if (isActiveStatic === true) {
+      <h2>This is a note</h2>
+    }
+
+    <button class="btn-toggle" (click)="showNote()">Show Note</button>
+    <button class="btn-toggle" (click)="hideNote()">Hide Note</button>
+  </div>
+
+  <!-- TOGGLE PARAGRAPH -->
+  <div class="directive-box">
+    <button class="btn-toggle" (click)="toggleParagraph()">
+      {{ isActiveDynamic ? 'Hide' : 'Show' }}
+    </button>
+
+    @if (isActiveDynamic === true) {
+      <p class="switch-box">This is the paragraph content.</p>
+    }
+  </div>
+
+  <!-- STATIC SWITCH (IF ELSE IF) -->
+  <div class="directive-box">
+    @if (monthValue === 'jan') {
+      <p class="switch-box">January</p>
+    } @else if (monthValue === 'feb') {
+      <p class="switch-box">February</p>
+    } @else if (monthValue === 'mar') {
+      <p class="switch-box">March</p>
+    }
+  </div>
+
+  <!-- DYNAMIC SWITCH -->
+  <div class="directive-box">
+    @if (monthNameDynamic === 'jan') {
+      <p class="switch-box">January</p>
+    } @else if (monthNameDynamic === 'feb') {
+      <p class="switch-box">February</p>
+    } @else if (monthNameDynamic === 'mar') {
+      <p class="switch-box">March</p>
+    } @else {
+      <p class="switch-box">Wrong Input</p>
+    }
+
+    <input class="form-input" type="text" [(ngModel)]="monthNameDynamic"
+      placeholder="Enter month abbreviation" />
+  </div>
+
+  <!-- FOR LOOP LIST -->
+  <div class="directive-box">
+    <ul>
+      @for (city of cityList; track $index) {
+        <li class="ngfor-item">{{ city }}</li>
+      }
+    </ul>
+  </div>
+
+  <!-- STUDENT TABLE -->
+  <table class="directive-table">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Course</th>
+      <th>Status</th>
+    </tr>
+
+    @for (stud of students; track stud.id) {
+      <tr [style.background]="stud.isActive ? '#c6f6c6' : 'white'">
+        <td>{{ stud.id }}</td>
+        <td>{{ stud.name }}</td>
+        <td>{{ stud.course }}</td>
+        <td>{{ stud.isActive ? 'Active' : 'Inactive' }}</td>
+      </tr>
+    }
+  </table>
+
+</div>

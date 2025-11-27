@@ -1,0 +1,42 @@
+<div class="db-container">
+
+  <h1 class="db-title">{{ studentName }}</h1>
+
+  <!-- PROPERTY BINDING -->
+  <div class="db-card">
+    <h2>Property Binding</h2>
+
+    <img [src]="imageUrl" width="200" alt="sample" class="db-image">
+
+    <br /><br />
+
+    <button [disabled]="isDisabled" class="db-btn">
+      Submit
+    </button>
+  </div>
+
+  <!-- CLASS BINDING -->
+  <div class="db-card">
+    <h2>Class Binding</h2>
+
+    <p
+      [class.passing]="isPassing"
+      [class.failing]="!isPassing"
+      class="db-status">
+      Student Result: {{ isPassing ? 'Passed' : 'Failed' }}
+    </p>
+  </div>
+
+  <!-- STYLE BINDING -->
+  <div class="db-card">
+    <h2>Style Binding</h2>
+
+    <div
+      [style.background]="boxColor"
+      [style.width]="boxSize"
+      [style.height]="boxSize"
+      class="box">
+    </div>
+  </div>
+
+</div>
