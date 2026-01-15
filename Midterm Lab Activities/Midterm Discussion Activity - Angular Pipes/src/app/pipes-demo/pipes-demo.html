@@ -1,0 +1,153 @@
+<div class="dashboard-wrapper">
+  <header class="main-header">
+    <h1>Angular Pipes Explorer</h1>
+    <p class="subtitle">Data Transformation & Formatting Demo</p>
+  </header>
+
+  <div class="grid-container">
+
+    <div class="card accent-blue">
+      <div class="card-header">
+        <h3>Date Pipe</h3>
+        <p class="description">Formats a date value according to locale rules.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row">
+          <span class="label">Short:</span>
+          <span class="value">{{ presentDate | date:'shortDate' }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">Full:</span>
+          <span class="value">{{ presentDate | date:'fullDate' }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">Custom (MM/dd/yyyy):</span>
+          <span class="value">{{ presentDate | date:'MM/dd/yyyy' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <div class="card-header">
+        <h3>Async Pipe</h3>
+        <p class="description">Subscribes to an Observable and returns the latest emitted value.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row center-content">
+          <div class="live-badge">
+            <span class="status-dot"></span>
+            {{ time$ | async | date:'h:mm:ss a' }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-emerald">
+      <div class="card-header">
+        <h3>Currency Pipe</h3>
+        <p class="description">Transforms a number to a currency string with correct symbols.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row">
+          <span class="label">Default (USD):</span>
+          <span class="value">{{ price | currency }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">INR:</span>
+          <span class="value">{{ price | currency: 'INR' }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">PHP:</span>
+          <span class="value">{{ price | currency: 'PHP' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-orange">
+      <div class="card-header">
+        <h3>Slice Pipe</h3>
+        <p class="description">Creates a new array containing a subset (slice) of the elements.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row">
+          <span class="label">Original:</span>
+          <span class="value small-text text-dim">{{ Fruits | slice:0:3 }}...</span>
+        </div>
+        <div class="data-row">
+          <span class="label">Slice (1:4):</span>
+          <span class="value highlight orange">{{ Fruits | slice:1:4 }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">Last 2:</span>
+          <span class="value highlight orange">{{ Fruits | slice:-2 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-purple">
+      <div class="card-header">
+        <h3>Decimal Pipe</h3>
+        <p class="description">Formats a number as text with specific integer/fraction digits.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row">
+          <span class="label">Raw:</span>
+          <span class="value">{{ decimalNum1 }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">Format (2.1-2):</span>
+          <span class="value bold">{{ decimalNum1 | number: '2.1-2' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-pink">
+      <div class="card-header">
+        <h3>Percent Pipe</h3>
+        <p class="description">Transforms a number to a percentage string.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row">
+          <span class="label">Raw:</span>
+          <span class="value">{{ growthRate }}</span>
+        </div>
+        <div class="data-row">
+          <span class="label">Formatted:</span>
+          <span class="value bold">{{ growthRate | percent:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-cyan">
+      <div class="card-header">
+        <h3>TitleCase Pipe</h3>
+        <p class="description">Capitalizes the first letter of each word.</p>
+      </div>
+      <div class="card-content">
+        <div class="data-row column-layout">
+          <span class="label">Before:</span>
+          <span class="value text-muted">{{ welcomeMessage }}</span>
+        </div>
+        <div class="data-row column-layout">
+          <span class="label">After:</span>
+          <span class="value bold">{{ welcomeMessage | titlecase }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent-dark wide">
+      <div class="card-header">
+        <h3>JSON Pipe</h3>
+        <p class="description">Converts a value into a JSON string. Useful for debugging.</p>
+      </div>
+      <div class="card-content">
+        <pre class="code-block">{{ userObject | json }}</pre>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="main-footer">
+    <p>Mid-Project Demo by <strong>Mikko Pangilinan</strong></p>
+  </footer>
+</div>

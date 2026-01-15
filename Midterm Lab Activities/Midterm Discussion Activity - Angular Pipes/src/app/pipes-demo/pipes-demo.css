@@ -1,0 +1,206 @@
+:host {
+  display: block;
+  /* Clean, light background */
+  background: #f8f9fa;
+  min-height: 100vh;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #2d3748;
+}
+
+/* --- Color Variables --- */
+:host {
+  --blue-dark: #3182ce;
+  --green-light: #f0fff4; --green-dark: #38a169;
+  --emerald-dark: #059669;
+  --orange-dark: #dd6b20;
+  --purple-dark: #805ad5;
+  --pink-dark: #d53f8c;
+  --cyan-dark: #319795;
+  --dark-text: #a0aec0;
+}
+
+.dashboard-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* --- Header Styling --- */
+.main-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 10px 0;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: #718096;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* --- Grid & Cards --- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  /* Softer shadow for a cleaner look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  border-left: 5px solid transparent; /* Side accent instead of top */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Specific Accents (Side Borders) --- */
+.accent-blue { border-color: var(--blue-dark); }
+.accent-green { border-color: var(--green-dark); }
+.accent-emerald { border-color: var(--emerald-dark); }
+.accent-orange { border-color: var(--orange-dark); }
+.accent-purple { border-color: var(--purple-dark); }
+.accent-pink { border-color: var(--pink-dark); }
+.accent-cyan { border-color: var(--cyan-dark); }
+.accent-dark { border-color: #4a5568; }
+
+/* --- Card Header --- */
+.card-header {
+  padding: 20px 24px 10px 24px; /* Reduced bottom padding */
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.description {
+  margin: 6px 0 0 0;
+  font-size: 0.85rem;
+  color: #a0aec0;
+  line-height: 1.4;
+}
+
+/* --- Card Content --- */
+.card-content {
+  padding: 20px 24px 24px 24px;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #edf2f7;
+}
+
+.data-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.data-row.column-layout {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.value {
+  font-size: 0.95rem;
+  font-family: 'Roboto Mono', monospace;
+  color: #4a5568;
+}
+
+.value.bold {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.value.highlight.orange {
+  background-color: #fffaf0;
+  color: #c05621;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* --- Live Badge (Async) --- */
+.live-badge {
+  background: var(--green-light);
+  color: var(--green-dark);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--green-dark);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+/* --- Code Block (JSON) --- */
+.code-block {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.main-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f7;
+  color: #a0aec0;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(56, 161, 105, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(56, 161, 105, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 161, 105, 0); }
+}
+
+@media (max-width: 768px) {
+  .wide { grid-column: auto; }
+}
