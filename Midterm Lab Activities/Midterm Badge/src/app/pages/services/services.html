@@ -1,0 +1,11 @@
+<input
+  type="text"
+  [value]="searchTerm$ | async"
+  (input)="onSearch($event.target.value)"
+  placeholder="Search posts..."
+/>
+
+<div *ngFor="let post of filteredPosts$ | async" class="card">
+  <strong>{{ post.title | uppercase }}</strong>
+  <p>{{ post.body | truncate:100 }}</p>
+</div>
