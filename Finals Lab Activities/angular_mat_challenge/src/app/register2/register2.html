@@ -1,0 +1,110 @@
+<mat-toolbar color="primary">
+  <mat-icon>terminal</mat-icon>
+  <span>Lab 5: Advanced Challenge</span>
+  <span class="spacer"></span>
+  <div class="theme-toggle">
+    <mat-icon>{{ formdata.get('darkMode')?.value ? 'dark_mode' : 'light_mode' }}</mat-icon>
+    <mat-slide-toggle [formControl]="$any(formdata.get('darkMode'))" (change)="toggleTheme()">
+    </mat-slide-toggle>
+  </div>
+</mat-toolbar>
+
+<div class="form-wrapper">
+  <mat-card appearance="outlined" class="main-card">
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+      <mat-card-subtitle>Complete the steps below</mat-card-subtitle>
+    </mat-card-header>
+
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit()">
+      <mat-stepper orientation="vertical" #stepper>
+
+        <mat-step [stepControl]="$any(formdata.get('userName'))">
+          <ng-template matStepLabel>Account Information</ng-template>
+          <div class="step-content">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="userName" matTooltip="Choose a unique display name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password">
+              <mat-icon matSuffix>lock</mat-icon>
+              @if (formdata.get('password')?.hasError('pattern')) {
+                <mat-error>Must start with letter & be alphanumeric (min 8)</mat-error>
+              }
+            </mat-form-field>
+            <button mat-button matStepperNext type="button">Next</button>
+          </div>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Personal Details</ng-template>
+          <div class="step-content">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Country</mat-label>
+              <mat-select formControlName="country">
+                <mat-option value="ph">Philippines</mat-option>
+                <mat-option value="sg">Singapore</mat-option>
+                <mat-option value="jp">Japan</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Birth Date</mat-label>
+              <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="birthDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <div class="chip-section">
+              <label>Primary Interests:</label>
+              <mat-chip-set>
+                @for (interest of interests; track interest) {
+                  <mat-chip>{{ interest }}</mat-chip>
+                }
+              </mat-chip-set>
+            </div>
+            <button mat-button matStepperPrevious type="button">Back</button>
+            <button mat-button matStepperNext type="button">Next</button>
+          </div>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Experience & Preferences</ng-template>
+          <div class="step-content">
+            <div class="slider-group">
+              <label matBadge="{{formdata.get('angularSkillLevel')?.value}}" matBadgeOverlap="false">
+                Angular Skill Level
+              </label>
+              <mat-slider min="1" max="10" step="1" discrete>
+                <input matSliderThumb formControlName="angularSkillLevel">
+              </mat-slider>
+            </div>
+
+            <mat-accordion class="extra-info">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Additional Comments</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Notes for organizers</mat-label>
+                  <textarea matInput placeholder="Dietary requirements, etc."></textarea>
+                </mat-form-field>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <div class="actions">
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-raised-button color="accent" type="submit"
+                      [disabled]="!formdata.valid" class="submit-btn">
+                Finish Registration
+              </button>
+            </div>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </form>
+  </mat-card>
+</div>

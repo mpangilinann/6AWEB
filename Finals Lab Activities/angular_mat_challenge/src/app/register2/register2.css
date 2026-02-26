@@ -1,0 +1,75 @@
+/* Layout Centering */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 90vh;
+  padding: 40px 20px;
+  background-color: #fafafa;
+  transition: background-color 0.3s;
+}
+
+.main-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Stepper Customization */
+.step-content {
+  padding: 20px 0;
+}
+
+.chip-section {
+  margin: 20px 0;
+}
+
+.slider-group {
+  margin: 30px 0;
+}
+
+.extra-info {
+  margin-bottom: 25px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* DARK THEME STYLES */
+/* Note: In a real app, these would be in styles.css or your theme mixin */
+::ng-deep body.dark-theme {
+  background-color: #303030 !important;
+  color: white;
+}
+
+::ng-deep body.dark-theme .form-wrapper {
+  background-color: #303030;
+}
+
+::ng-deep body.dark-theme .mat-mdc-card {
+  background-color: #424242;
+  color: white;
+  border-color: #666;
+}
+
+::ng-deep body.dark-theme .mat-step-label,
+::ng-deep body.dark-theme .mat-panel-title {
+  color: #e0e0e0;
+}
