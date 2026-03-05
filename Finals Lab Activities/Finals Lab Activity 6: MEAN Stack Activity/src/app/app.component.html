@@ -1,0 +1,58 @@
+<div class="dashboard">
+  <header>
+    <h1>Library<span>Cloud</span></h1>
+    <div class="stats">Collection Size: {{ books.length }}</div>
+  </header>
+
+  <div class="main-layout">
+    <aside class="editor-panel">
+      <div class="glass-card">
+        <h2>{{ editingBookId ? '📝 Update Book' : '➕ New Entry' }}</h2>
+        <div class="input-group">
+          <label>Title</label>
+          <input [(ngModel)]="newBook" placeholder="The Great Gatsby">
+
+          <label>Author</label>
+          <input [(ngModel)]="newAuthor" placeholder="F. Scott Fitzgerald">
+
+          <label>Year</label>
+          <input [(ngModel)]="newYear" placeholder="1925">
+
+          <label>Description</label>
+          <textarea [(ngModel)]="newDesc" placeholder="Describe the book..."></textarea>
+
+          <label>Price ($)</label>
+          <input [(ngModel)]="newPrice" type="number" placeholder="19.99">
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary" (click)="addOrUpdateBook()">
+            {{ editingBookId ? 'Apply Changes' : 'Save to Library' }}
+          </button>
+          <button *ngIf="editingBookId" class="btn-ghost" (click)="resetForm()">Cancel</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="books-grid">
+      @for (book of books; track book.id) {
+        <div class="book-card">
+          <div class="card-header">
+            <span class="id-badge">ID: {{ book.id }}</span>
+            <span class="price-tag">${{ book.price }}</span>
+          </div>
+          <h3>{{ book.title }}</h3>
+          <p class="author-line">By <b>{{ book.author }}</b> • {{ book.year }}</p>
+          <p class="description">{{ book.desc }}</p>
+
+          <div class="card-footer">
+            <button class="edit-btn" (click)="editBook(book)">Edit</button>
+            <button class="delete-btn" (click)="deleteBook(book.id)">Remove</button>
+          </div>
+        </div>
+      } @empty {
+        <div class="empty-state">No books available. Start by adding one!</div>
+      }
+    </section>
+  </div>
+</div>
